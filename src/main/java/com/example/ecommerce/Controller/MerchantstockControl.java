@@ -19,7 +19,9 @@ import java.util.ArrayList;
 public class MerchantstockControl {
 
     private final MerchantStockService  merchantStockService;
-    private final ProductService productService; // اضفناها عشان نقدر نسوي اضافه للمنتجات
+
+    // تم الغائها لفهم السؤال خطأ
+//    private final ProductService productService; // اضفناها عشان نقدر نسوي اضافه للمنتجات
 
     @GetMapping("/get")
     public ResponseEntity getMerchantstock(){
@@ -59,10 +61,21 @@ public class MerchantstockControl {
         return ResponseEntity.status(400).body("Wrong id");
     }
 
+    // تم الغائها لفهم السؤال خطأ
+//    @PostMapping("/addproduct")
+//    public void addProduct(Product product){
+//
+//        productService.addProduct(product);
+//    }
+
+    // تم اضافة MerchantStock
     @PostMapping("/addproduct")
-    public void addProduct(Product product){
-        
-        productService.addProduct(product);
+    public ResponseEntity addProduct(MerchantStock merchantStock){
+        boolean isAdded=merchantStockService.addMerchantStock(merchantStock);
+        if(isAdded){
+            return ResponseEntity.status(200).body("Merchant Stock was added");
+        }
+        return ResponseEntity.status(400).body("not added");
     }
 
 

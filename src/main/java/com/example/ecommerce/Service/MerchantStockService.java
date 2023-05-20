@@ -13,8 +13,9 @@ public class MerchantStockService {
         return merchantStocks;
     }
 
-    public void addMerchantStock(MerchantStock merchantStock){
-        merchantStocks.add(merchantStock);
+    // تم تحويل الvoid الى boolean
+    public boolean addMerchantStock(MerchantStock merchantStock){
+        return merchantStocks.add(merchantStock);
     }
 
     public boolean updateMerchantStock(int id ,MerchantStock merchantStock){
