@@ -16,7 +16,7 @@ public class MerchantStock {
 
     @NotEmpty(message = "must not be empty")
     @Size(min = 3,message = "have to be 3 character long")
-    private String productid;
+    private int productid;
 
     @NotNull(message = "must not be empty")
     @Size(min = 3,message = "have to be 3 character long")

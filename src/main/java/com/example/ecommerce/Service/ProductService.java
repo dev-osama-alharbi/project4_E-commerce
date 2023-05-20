@@ -38,4 +38,12 @@ public class ProductService {
     }
 
 
+    public Product getProductById(int productId) {
+        for (int i=0 ; i<products.size(); i++){
+            if(products.get(i).getId()==productId){
+                return products.get(i);
+            }
+        }
+        return null;
+    }
 }

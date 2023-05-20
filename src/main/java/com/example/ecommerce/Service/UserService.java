@@ -37,4 +37,24 @@ public class UserService {
         }
         return false;
     }
+
+    public boolean haveBalance(int userId, double balance) {
+        for (int i = 0; i <users.size() ; i++) {
+            if (users.get(i).getId()==userId){
+                if(users.get(i).getBalance() >= balance){
+                    return true;
+                }
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public void reduceBalance(int userId, double balance) {
+        for (int i = 0; i <users.size() ; i++) {
+            if (users.get(i).getId()==userId){
+                users.get(i).setBalance(users.get(i).getBalance() - balance);
+            }
+        }
+    }
 }

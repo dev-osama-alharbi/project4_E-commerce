@@ -40,4 +40,26 @@ public class MerchantStockService {
         return false;
     }
 
+    public boolean haveProduct(int merchantId,int productId) {
+        for (int i = 0; i < merchantStocks.size(); i++) {
+            if (merchantStocks.get(i).getMerchantid() == merchantId) {
+                if (merchantStocks.get(i).getProductid() == productId) {
+                    if (merchantStocks.get(i).getStock() >= 1){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public void reduceProduct(int merchantId,int productId) {
+        for (int i = 0; i < merchantStocks.size(); i++) {
+            if (merchantStocks.get(i).getMerchantid() == merchantId) {
+                if (merchantStocks.get(i).getProductid() == productId) {
+                    merchantStocks.get(i).setStock(merchantStocks.get(i).getStock() - 1);
+                }
+            }
+        }
+    }
 }
